@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" alt="Логотип проекта Mesto" src="./images/header_logo.png">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <div class="profile__container">
+                    <img class="profile__avatar" alt="Аватар" src="./images/Avatar.png">
+                    <div class="profile__info">
+                        <div class="profile__owner-container"> <!--Здесь пришлось сделать еще одну обертку, так как,
+                         если в поле profile_owner ввести очень короткое имя, то поле profile__description переносится
+                         на одну строку с именем и кнопкой редактирования, что выглядит не очень эстетично и не по
+                         макету-->
+                            <h1 class="profile__owner">Жак-Ив Кусто</h1>
+                            <button class="profile__edit-button"></button>
+                        </div>
+                        <p class="profile__description">Исследователь океана</p>
+                    </div>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+            <section class="elements">
+                <ul class="elements__list">
+                    <li class="element">
+                        <img class="element__image" alt="Фотография Карачаевск" src="./images/Karachaevsk.png">
+                        <div class="element__container">
+                            <p class="element__description">Карачаевск</p>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__image" alt="Фотография гора Эльбрус" src="./images/Elbrus.png">
+                        <div class="element__container">
+                            <p class="element__description">Гора Эльбрус</p>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__image" alt="Фотография Домбай" src="./images/Dombay.png">
+                        <div class="element__container">
+                            <p class="element__description">Домбай</p>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__image" alt="Фотография гора Эльбрус" src="./images/Elbrus.png">
+                        <div class="element__container">
+                            <p class="element__description">Гора Эльбрус</p>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__image" alt="Фотография Домбай" src="./images/Dombay.png">
+                        <div class="element__container">
+                            <p class="element__description">Домбай</p>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__image" alt="Фотография Карачаево-Черкесия" src="./images/Karachaevo.png">
+                        <div class="element__container">
+                            <p class="element__description">Карачаево-Черкесия</p>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+        </footer>
+    </div>
+    <div class="popup">
+        <form class="popup__edit-form">
+            <h2 class="popup__header">Редактировать профиль</h2>
+            <button class="popup__exit-button"></button>
+            <input type='text' class="popup__input popup__input_profile-owner">
+            <input type = 'text' class="popup__input popup__input_profile-description">
+            <button class="popup__save-button">Сохранить</button>
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
