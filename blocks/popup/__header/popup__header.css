@@ -5,7 +5,7 @@
     font-size: 24px;
     line-height: 29px;
     color: #000000;
-    padding: 34px 0 54px 36px;
+    padding: 34px 64px 54px 36px;
     margin: 0;
     align-self: flex-start;
 }
@@ -14,6 +14,6 @@
     .popup__header {
         font-size: 18px;
         line-height: 22px;
-        padding: 25px 0 81px 22px;
+        padding: 25px 22px 81px 22px;
     }
 }
