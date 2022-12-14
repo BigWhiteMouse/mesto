@@ -3,11 +3,12 @@
     height: 19px;
     border: 0;
     padding: 0 0 0 30px;
-    background-image: url("../../../images/Like.png");
+    background-image: url("../../../images/like.svg");
     background-color: #FFFFFF;
     background-repeat: no-repeat;
+    background-size: 22px 19px;
 }
 
 .element__like-button:hover{
-    opacity: 0.6;
+    opacity: 0.5;
 }

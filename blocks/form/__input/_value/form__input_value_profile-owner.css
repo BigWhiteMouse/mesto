@@ -1,9 +1,9 @@
-.popup__input_profile-owner{
+.form__input_value_profile-owner{
     margin-bottom: 37px;
 }
 
 @media (max-width: 425px) {
-    .popup__input_profile-owner {
+    .form__input_value_profile-owner{
         margin-bottom: 38px;
     }
 }
