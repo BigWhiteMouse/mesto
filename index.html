@@ -29,67 +29,41 @@
                 <button type="button" aria-label="Добавить" class="profile__add-button"></button>
             </section>
             <section class="elements">
-                <ul class="elements__list">
-                    <li class="element">
-                        <img class="element__image" alt="Фотография Карачаевск" src="images/karachaevsk.png">
-                        <div class="element__container">
-                            <p class="element__description">Карачаевск</p>
-                            <button type="button" aria-label="Оценить" class="element__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" alt="Фотография гора Эльбрус" src="images/elbrus.png">
-                        <div class="element__container">
-                            <p class="element__description">Гора Эльбрус</p>
-                            <button type="button" aria-label="Оценить" class="element__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" alt="Фотография Домбай" src="images/dombay.png">
-                        <div class="element__container">
-                            <p class="element__description">Домбай</p>
-                            <button type="button" aria-label="Оценить" class="element__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" alt="Фотография гора Эльбрус" src="images/elbrus.png">
-                        <div class="element__container">
-                            <p class="element__description">Гора Эльбрус</p>
-                            <button type="button" aria-label="Оценить" class="element__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" alt="Фотография Домбай" src="images/dombay.png">
-                        <div class="element__container">
-                            <p class="element__description">Домбай</p>
-                            <button type="button" aria-label="Оценить" class="element__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" alt="Фотография Карачаево-Черкесия" src="images/karachaevo.png">
-                        <div class="element__container">
-                            <p class="element__description">Карачаево-Черкесия</p>
-                            <button type="button" aria-label="Оценить" class="element__like-button"></button>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="elements__list"></ul>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
     </div>
-    <div class="popup">
+    <div class="popup popup_usage_form">
         <div class="popup__content">
-            <h2 class="popup__header">Редактировать профиль</h2>
+            <h2 class="popup__header"></h2>
             <button type="reset" aria-label="Закрыть" class="popup__exit-button"></button>
-            <form name="edit_profile_form" class="form">
-                <input type='text' class="form__input form__input_value_profile-owner">
-                <input type = 'text' class="form__input form__input_value_profile-description">
-                <button type="submit" aria-label="Сохранить" class="form__submit-button">Сохранить</button>
+            <form name="edit_form" class="form">
+                <input type='text' class="form__input form__input_value_name">
+                <input type = 'text' class="form__input form__input_value_description">
+                <button type="submit" aria-label="Сохранить" class="form__submit-button"></button>
             </form>
         </div>
     </div>
+    <div class="popup popup_usage_image">
+        <div class="popup__container">
+            <button type="reset" aria-label="Закрыть" class="popup__exit-button"></button>
+            <img class="popup__img" alt="" src="">
+            <p class="popup__description"></p>
+        </div>
+    </div>
+    <template class="element__template">
+        <li class="element">
+            <img class="element__image" alt="" src="">
+            <button type="button" aria-label="Удалить" class="element__delete-button"></button>
+            <div class="element__container">
+                <p class="element__description"></p>
+                <button type="button" aria-label="Оценить" class="element__like-button"></button>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/index.js"></script>
 </body>
 </html>
