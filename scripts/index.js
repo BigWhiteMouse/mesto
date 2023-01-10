@@ -1,21 +1,30 @@
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileOwner = document.querySelector('.profile__owner');
 const profileDescription = document.querySelector('.profile__description');
-const formInputValueName = document.querySelector('.form__input_value_name');
-const formInputValueDescription = document.querySelector('.form__input_value_description');
-const popupExitButton = document.querySelector('.popup__exit-button');
-const submitForm  = document.querySelector('.form');
+
 const elementsList = document.querySelector('.elements__list');
 const elementTemplate = document.querySelector('.element__template').content.querySelector('.element');
-const popupHeader = document.querySelector('.popup__header');
-let eventTarget;
+
 const addButton = document.querySelector('.profile__add-button');
-const formSubmitButton = document.querySelector('.form__submit-button');
+
 const popupImage = document.querySelector('.popup__img');
 const popupDescription = document.querySelector('.popup__description');
 let popup;
+
 const popupUsageImage = document.querySelector('.popup_usage_image');
 const popupImageExitButton = popupUsageImage.querySelector('.popup__exit-button');
+
+const popupUsageEditProfile = document.querySelector('.popup_usage_edit-profile');
+const submitEditForm  = popupUsageEditProfile.querySelector('.form');
+const popupEditExitButton = popupUsageEditProfile.querySelector('.popup__exit-button');
+const formInputValueProfileOwner = popupUsageEditProfile.querySelector('.form__input_value_name');
+const formInputValueProfileDescription = popupUsageEditProfile.querySelector('.form__input_value_description');
+
+const popupUsageAddNewPlace = document.querySelector('.popup_usage_add-new-place');
+const submitAddForm = popupUsageAddNewPlace.querySelector('.form');
+const popupAddExitButton = popupUsageAddNewPlace.querySelector('.popup__exit-button');
+const formInputValueCardName = popupUsageAddNewPlace.querySelector('.form__input_value_name');
+const formInputValueCardLink = popupUsageAddNewPlace.querySelector('.form__input_value_description');
 
 const initialCards = [
     {
@@ -110,44 +119,42 @@ function closePopup(){
     popup.classList.remove('popup_visible');
 }
 
-//сохранение изменений
-function submit(event){
+//сохранение изменений (редактирование профиля)
+function editSubmit(event){
     event.preventDefault();
     closePopup();
-    if (eventTarget === 'profile__edit-button'){
-        submitProfileEditForm();
-    }
-    else if (eventTarget === 'profile__add-button'){
-        submitAddElementForm();
-    }
+    submitProfileEditForm();
+}
+
+//сохранение изменений (редкатирование карточки)
+function addSubmit(event){
+    event.preventDefault();
+    closePopup();
+    submitAddElementForm();
 }
 
 //заполнение атрибутов попапа при открытии формы редактирования профиля
 function openProfileEditForm(){
-    formInputValueName.value = profileOwner.textContent;
-    formInputValueDescription.value = profileDescription.textContent;
-    popupHeader.textContent = 'Редактировать профиль';
-    formSubmitButton.textContent = 'Сохранить';
+    formInputValueProfileOwner.value = profileOwner.textContent;
+    formInputValueProfileDescription.value = profileDescription.textContent;
+}
+
+//заполнение атрибутов попапа при открытии формы редактирования карточки
+function openAddElementForm(){
+    formInputValueCardName.value = '';
+    formInputValueCardLink.value = '';
 }
 
 //сохранение изменений в форме редактирования профиля
 function submitProfileEditForm(){
-    profileOwner.textContent = formInputValueName.value;
-    profileDescription.textContent = formInputValueDescription.value;
-}
-
-//заполнение атрибутов попапа при открытии формы добавления карточки с картинкой
-function openAddElementForm(){
-    formInputValueName.value = 'Название';
-    formInputValueDescription.value = 'Ссылка на картинку';
-    popupHeader.textContent = 'Новое место';
-    formSubmitButton.textContent = 'Создать';
+    profileOwner.textContent = formInputValueProfileOwner.value;
+    profileDescription.textContent = formInputValueProfileDescription.value;
 }
 
 //сохранение изменений в форме добавления карточки на страницу
 function submitAddElementForm(){
-    let src =  formInputValueDescription.value;
-    let description = formInputValueName.value;
+    let src =  formInputValueCardLink.value;
+    let description = formInputValueCardName.value;
     const element = createElement(src, description);
     addElement(element);
 }
@@ -160,26 +167,30 @@ function openElementImg(src, description){
 }
 
 //открытие попапа (редкактирование профиля) кликом по кнопке редактирования
-profileEditButton.addEventListener('click', function(event){
-    popup = document.querySelector('.popup_usage_form');
+profileEditButton.addEventListener('click', function(){
+    popup = document.querySelector('.popup_usage_edit-profile');
     makePopupVisible(popup);
     openProfileEditForm();
-    eventTarget = event.target.className;
 });
 
 //открытие попапа (добавления карточки) кликом по кнопке Добавить
-addButton.addEventListener('click', function (event){
-    popup = document.querySelector('.popup_usage_form');
+addButton.addEventListener('click', function (){
+    popup = document.querySelector('.popup_usage_add-new-place');
     makePopupVisible(popup);
     openAddElementForm();
-    eventTarget = event.target.className;
 })
 
-//закрытие попапа и сохранение изменений
-submitForm.addEventListener('submit', submit);
+//закрытие попапа (редактирование профиля) и сохранение изменений
+submitEditForm.addEventListener('submit', editSubmit);
 
-//закрытие попапа без сохранения изменений кликом по кнопке закрытия
-popupExitButton.addEventListener('click', closePopup);
+//закрытие попапа (добавление карточки) и сохранение изменений
+submitAddForm.addEventListener('submit', addSubmit);
+
+//закрытие попапа (редактирование профиля) без сохранения изменений кликом по кнопке закрытия
+popupEditExitButton.addEventListener('click', closePopup);
+
+//закрытие попапа (добавление карточки) без сохранения изменений кликом по кнопке закрытия
+popupAddExitButton.addEventListener('click', closePopup);
 
 //закрытие попапа с картинкой
 popupImageExitButton.addEventListener('click', closePopup);
